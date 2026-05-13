@@ -143,25 +143,171 @@ h1,h2,h3,h4{font-family:'Fraunces',serif;line-height:1.2}
 .service-arrow{display:inline-flex;align-items:center;gap:4px;color:var(--teal);font-size:.82rem;font-weight:600;margin-top:14px;transition:var(--transition)}
 .service-card:hover .service-arrow{gap:8px}
 /* ─── Doctors ───────────────────────────────────────────────── */
-.doctors{padding:96px 0;background:var(--white)}
-.doctors-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:52px;flex-wrap:wrap;gap:20px}
-.doctor-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px}
-.doctor-card{border-radius:var(--radius);overflow:hidden;background:var(--white);border:1px solid rgba(11,31,58,.07);transition:var(--transition)}
-.doctor-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-4px)}
-.doctor-photo{height:220px;background:linear-gradient(135deg,var(--mist),#d1ebe8);display:flex;align-items:center;justify-content:center;font-size:5rem;position:relative}
-.doctor-photo-overlay{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(11,31,58,.4));height:60px}
-.doctor-badge{position:absolute;top:14px;right:14px;background:var(--gold);color:var(--navy);font-size:.72rem;font-weight:700;padding:4px 10px;border-radius:50px}
-.doctor-info{padding:22px}
-.doctor-info h3{font-size:1.05rem;font-family:'Fraunces',serif;color:var(--navy);margin-bottom:4px}
-.doctor-spec{font-size:.82rem;color:var(--teal);font-weight:600;margin-bottom:12px}
-.doctor-meta{display:flex;gap:16px;margin-bottom:14px}
-.doctor-meta-item{display:flex;align-items:center;gap:5px;font-size:.8rem;color:var(--slate)}
-.doctor-stars{display:flex;gap:2px;margin-bottom:14px}
-.star{color:var(--gold);font-size:.9rem}
-.doctor-tags{display:flex;gap:6px;flex-wrap:wrap}
-.doctor-tag{background:var(--mist);color:var(--teal);font-size:.72rem;font-weight:600;padding:3px 10px;border-radius:50px}
-.doctor-book-btn{width:100%;margin-top:16px;background:var(--mist);color:var(--teal);padding:11px;border-radius:10px;font-size:.88rem;font-weight:600;transition:var(--transition);text-align:center;display:block}
-.doctor-book-btn:hover{background:var(--teal);color:#fff}
+.doctors{
+  padding:96px 0;
+  background:var(--white);
+}
+
+.doctors-header{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  margin-bottom:52px;
+  flex-wrap:wrap;
+  gap:20px;
+}
+
+.doctor-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:24px;
+}
+
+/* CARD */
+.doctor-card{
+  border-radius:var(--radius);
+  overflow:hidden;
+  background:var(--white);
+  border:1px solid rgba(11,31,58,.07);
+  transition:var(--transition);
+}
+
+.doctor-card:hover{
+  box-shadow:var(--shadow-lg);
+  transform:translateY(-4px);
+}
+
+/* IMAGE BOX (IMPORTANT FIX) */
+.doctor-photo{
+  height:220px;
+  position:relative;
+  overflow:hidden;
+  background:var(--mist);
+}
+
+/* REAL IMAGE FIX */
+.doctor-photo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  transition:transform .4s ease;
+}
+
+.doctor-card:hover .doctor-photo img{
+  transform:scale(1.05);
+}
+
+/* REMOVE OLD EMOJI STYLE */
+.doctor-photo{
+  font-size:unset;
+  display:block;
+}
+
+/* OVERLAY */
+.doctor-photo-overlay{
+  position:absolute;
+  bottom:0;
+  left:0;
+  right:0;
+  background:linear-gradient(transparent,rgba(11,31,58,.4));
+  height:60px;
+}
+
+/* BADGE */
+.doctor-badge{
+  position:absolute;
+  top:14px;
+  right:14px;
+  background:var(--gold);
+  color:var(--navy);
+  font-size:.72rem;
+  font-weight:700;
+  padding:4px 10px;
+  border-radius:50px;
+  z-index:2;
+}
+
+/* TEXT AREA */
+.doctor-info{
+  padding:22px;
+}
+
+.doctor-info h3{
+  font-size:1.05rem;
+  font-family:'Fraunces',serif;
+  color:var(--navy);
+  margin-bottom:4px;
+}
+
+.doctor-spec{
+  font-size:.82rem;
+  color:var(--teal);
+  font-weight:600;
+  margin-bottom:12px;
+}
+
+.doctor-meta{
+  display:flex;
+  gap:16px;
+  margin-bottom:14px;
+}
+
+.doctor-meta-item{
+  display:flex;
+  align-items:center;
+  gap:5px;
+  font-size:.8rem;
+  color:var(--slate);
+}
+
+/* STARS */
+.doctor-stars{
+  display:flex;
+  gap:2px;
+  margin-bottom:14px;
+}
+
+.star{
+  color:var(--gold);
+  font-size:.9rem;
+}
+
+/* TAGS */
+.doctor-tags{
+  display:flex;
+  gap:6px;
+  flex-wrap:wrap;
+}
+
+.doctor-tag{
+  background:var(--mist);
+  color:var(--teal);
+  font-size:.72rem;
+  font-weight:600;
+  padding:3px 10px;
+  border-radius:50px;
+}
+
+/* BUTTON */
+.doctor-book-btn{
+  width:100%;
+  margin-top:16px;
+  background:var(--mist);
+  color:var(--teal);
+  padding:11px;
+  border-radius:10px;
+  font-size:.88rem;
+  font-weight:600;
+  transition:var(--transition);
+  text-align:center;
+  display:block;
+}
+
+.doctor-book-btn:hover{
+  background:var(--teal);
+  color:#fff;
+}
 
 /* ─── Appointment ───────────────────────────────────────────── */
 .appointment{padding:96px 0;background:linear-gradient(135deg,var(--navy) 0%,#0d3d38 100%);position:relative;overflow:hidden}
@@ -600,145 +746,99 @@ h1,h2,h3,h4{font-family:'Fraunces',serif;line-height:1.2}
 <!-- ── Doctors ─────────────────────────────────────────────────── -->
 <section class="doctors" id="doctors" aria-label="Our specialist doctors">
   <div class="container">
+
     <div class="doctors-header">
       <div class="reveal">
         <p class="section-label">Meet Our Team</p>
         <h2 class="section-title">Doctors Who Truly Care</h2>
-        <p class="section-sub">Board-certified specialists with decades of combined experience — and the compassion to match.</p>
+        <p class="section-sub">
+          Board-certified specialists with decades of combined experience — and the compassion to match.
+        </p>
       </div>
-      <a href="#appointment" class="btn-primary reveal" style="flex-shrink:0">View All Doctors →</a>
+
+      <a href="#appointment" class="btn-primary reveal" style="flex-shrink:0">
+        View All Doctors →
+      </a>
     </div>
+
     <div class="doctor-grid">
-      <div class="doctor-card reveal reveal-delay-1">
+
+      <!-- DOCTOR 1 -->
+      <div class="doctor-card reveal">
         <div class="doctor-photo">
-
-  <img 
-    src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=1200&auto=format&fit=crop"
-    alt="Doctor"
-  >
-
-  <div class="doctor-photo-overlay"></div>
-
-</div>
-          <div class="doctor-photo-overlay"></div>
-          <div class="doctor-badge">Top Rated</div>
+          <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?q=80&w=1200&auto=format&fit=crop" alt="Dr Sarah Mitchell">
         </div>
+
         <div class="doctor-info">
           <h3>Dr. Sarah Mitchell</h3>
           <p class="doctor-spec">Senior Cardiologist</p>
+
           <div class="doctor-meta">
             <span class="doctor-meta-item">🎓 Harvard MD</span>
             <span class="doctor-meta-item">📅 22 yrs exp</span>
           </div>
-          <div class="doctor-stars">
-            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
-            <small style="color:var(--slate);font-size:.8rem;margin-left:6px">5.0 (312 reviews)</small>
-          </div>
-          <div class="doctor-tags">
-            <span class="doctor-tag">Heart Failure</span>
-            <span class="doctor-tag">Interventional</span>
-            <span class="doctor-tag">Echo</span>
-          </div>
+
           <a href="#appointment" class="doctor-book-btn">Book Appointment</a>
         </div>
       </div>
-      <div class="doctor-card reveal reveal-delay-2">
+
+      <!-- DOCTOR 2 -->
+      <div class="doctor-card reveal">
         <div class="doctor-photo">
-
-  <img 
-    src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=1200&auto=format&fit=crop"
-    alt="Doctor"
-  >
-
-  <div class="doctor-photo-overlay"></div>
-
-</div>
-          <div class="doctor-photo-overlay"></div>
-          <div class="doctor-badge">⭐ Expert</div>
+          <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?q=80&w=1200&auto=format&fit=crop" alt="Dr Raj Patel">
         </div>
+
         <div class="doctor-info">
           <h3>Dr. Raj Patel</h3>
           <p class="doctor-spec">Neurosurgeon</p>
+
           <div class="doctor-meta">
             <span class="doctor-meta-item">🎓 Johns Hopkins</span>
             <span class="doctor-meta-item">📅 18 yrs exp</span>
           </div>
-          <div class="doctor-stars">
-            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
-            <small style="color:var(--slate);font-size:.8rem;margin-left:6px">4.9 (278 reviews)</small>
-          </div>
-          <div class="doctor-tags">
-            <span class="doctor-tag">Brain Tumor</span>
-            <span class="doctor-tag">Spine Surgery</span>
-          </div>
+
           <a href="#appointment" class="doctor-book-btn">Book Appointment</a>
         </div>
       </div>
-      <div class="doctor-card reveal reveal-delay-3">
-       <div class="doctor-photo">
 
-  <img 
-    src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=1200&auto=format&fit=crop"
-    alt="Doctor"
-  >
-
-  <div class="doctor-photo-overlay"></div>
-
-</div>
-          <div class="doctor-photo-overlay"></div>
-          <div class="doctor-badge">Top Rated</div>
+      <!-- DOCTOR 3 -->
+      <div class="doctor-card reveal">
+        <div class="doctor-photo">
+          <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?q=80&w=1200&auto=format&fit=crop" alt="Dr Amelia Chen">
         </div>
+
         <div class="doctor-info">
           <h3>Dr. Amelia Chen</h3>
           <p class="doctor-spec">Pediatric Specialist</p>
+
           <div class="doctor-meta">
             <span class="doctor-meta-item">🎓 Mayo Clinic</span>
             <span class="doctor-meta-item">📅 15 yrs exp</span>
           </div>
-          <div class="doctor-stars">
-            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
-            <small style="color:var(--slate);font-size:.8rem;margin-left:6px">4.9 (445 reviews)</small>
-          </div>
-          <div class="doctor-tags">
-            <span class="doctor-tag">Neonatal</span>
-            <span class="doctor-tag">Child Dev.</span>
-            <span class="doctor-tag">Vaccines</span>
-          </div>
+
           <a href="#appointment" class="doctor-book-btn">Book Appointment</a>
         </div>
       </div>
-      <div class="doctor-card reveal reveal-delay-4">
-       <div class="doctor-photo">
 
-  <img 
-    src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=1200&auto=format&fit=crop"
-    alt="Doctor"
-  >
-
-  <div class="doctor-photo-overlay"></div>
-
-</div>
-          <div class="doctor-photo-overlay"></div>
-          <div class="doctor-badge">⭐ Expert</div>
+      <!-- DOCTOR 4 -->
+      <div class="doctor-card reveal">
+        <div class="doctor-photo">
+          <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=1200&auto=format&fit=crop" alt="Dr Marcus Lee">
         </div>
+
         <div class="doctor-info">
           <h3>Dr. Marcus Lee</h3>
           <p class="doctor-spec">Orthopedic Surgeon</p>
+
           <div class="doctor-meta">
             <span class="doctor-meta-item">🎓 Stanford MD</span>
             <span class="doctor-meta-item">📅 20 yrs exp</span>
           </div>
-          <div class="doctor-stars">
-            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
-            <small style="color:var(--slate);font-size:.8rem;margin-left:6px">4.8 (198 reviews)</small>
-          </div>
-          <div class="doctor-tags">
-            <span class="doctor-tag">Knee Replacement</span>
-            <span class="doctor-tag">Sports Injury</span>
-          </div>
+
           <a href="#appointment" class="doctor-book-btn">Book Appointment</a>
         </div>
       </div>
+
     </div>
   </div>
 </section>
