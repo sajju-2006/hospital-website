@@ -1,0 +1,1300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="MediCare Plus – Compassionate, world-class healthcare. Book appointments, meet our specialists, and access emergency services 24/7.">
+<meta name="keywords" content="hospital, clinic, doctor, appointment, emergency, healthcare, specialist">
+<title>MediCare Plus | Compassionate World-Class Healthcare</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ─── CSS Variables ─────────────────────────────────────────── */
+:root {
+  --navy:    #0B1F3A;
+  --teal:    #1A7F74;
+  --teal-lt: #22A99B;
+  --cream:   #F8F5F0;
+  --warm:    #FFF8F0;
+  --gold:    #D4A853;
+  --red:     #C0392B;
+  --red-lt:  #E74C3C;
+  --slate:   #4A5568;
+  --mist:    #E8F4F3;
+  --white:   #FFFFFF;
+  --shadow:  0 4px 32px rgba(11,31,58,.10);
+  --shadow-lg: 0 12px 56px rgba(11,31,58,.14);
+  --radius:  14px;
+  --transition: .28s cubic-bezier(.4,0,.2,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'DM Sans',sans-serif;color:var(--navy);background:var(--white);overflow-x:hidden;line-height:1.65}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{cursor:pointer;border:none;background:none;font-family:inherit}
+h1,h2,h3,h4{font-family:'Fraunces',serif;line-height:1.2}
+/* ─── Utilities ─────────────────────────────────────────────── */
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+.section-label{font-size:.78rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);margin-bottom:12px}
+.section-title{font-size:clamp(1.9rem,4vw,2.8rem);font-weight:600;color:var(--navy);margin-bottom:18px}
+.section-sub{font-size:1.05rem;color:var(--slate);max-width:560px;line-height:1.75}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--teal);color:#fff;padding:14px 30px;border-radius:50px;font-size:.95rem;font-weight:600;transition:var(--transition);box-shadow:0 4px 20px rgba(26,127,116,.30)}
+.btn-primary:hover{background:var(--teal-lt);transform:translateY(-2px);box-shadow:0 8px 28px rgba(26,127,116,.38)}
+.btn-outline{display:inline-flex;align-items:center;gap:8px;border:2px solid currentColor;padding:13px 28px;border-radius:50px;font-size:.95rem;font-weight:600;transition:var(--transition)}
+.tag{display:inline-block;background:var(--mist);color:var(--teal);font-size:.78rem;font-weight:600;padding:4px 12px;border-radius:50px}
+.grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:32px}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+
+/* ─── Animations ────────────────────────────────────────────── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(192,57,43,.4)}70%{box-shadow:0 0 0 12px rgba(192,57,43,0)}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@keyframes shimmer{0%{background-position:-200% 0}100%{background-position:200% 0}}
+.fade-up{opacity:0;transform:translateY(28px);transition:opacity .6s ease,transform .6s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+
+/* ─── Emergency Banner ──────────────────────────────────────── */
+.emergency-banner{background:var(--red);color:#fff;text-align:center;padding:10px 24px;font-size:.88rem;font-weight:500;position:relative;z-index:1000}
+.emergency-banner a{color:#fff;font-weight:700;text-decoration:underline;margin:0 6px}
+.emergency-banner strong{animation:pulse 2s infinite;display:inline-block;width:10px;height:10px;background:#fff;border-radius:50%;margin-right:8px;vertical-align:middle}
+
+/* ─── Navigation ────────────────────────────────────────────── */
+.navbar{position:sticky;top:0;z-index:999;background:rgba(255,255,255,.96);backdrop-filter:blur(16px);border-bottom:1px solid rgba(11,31,58,.07);transition:var(--transition)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:16px 24px;max-width:1200px;margin:0 auto}
+.logo{display:flex;align-items:center;gap:10px}
+.logo-icon{width:42px;height:42px;background:linear-gradient(135deg,var(--teal),var(--teal-lt));border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.logo-icon svg{width:22px;height:22px;fill:none;stroke:#fff;stroke-width:2.2;stroke-linecap:round}
+.logo-text{font-family:'Fraunces',serif;font-size:1.3rem;font-weight:700;color:var(--navy);line-height:1.1}
+.logo-text span{color:var(--teal);display:block;font-size:.68rem;font-family:'DM Sans',sans-serif;font-weight:600;letter-spacing:.06em;text-transform:uppercase}
+.nav-links{display:flex;align-items:center;gap:32px;list-style:none}
+.nav-links a{font-size:.92rem;font-weight:500;color:var(--slate);transition:var(--transition)}
+.nav-links a:hover{color:var(--teal)}
+.nav-ctas{display:flex;align-items:center;gap:12px}
+.nav-emergency{background:var(--red);color:#fff;padding:10px 18px;border-radius:50px;font-size:.85rem;font-weight:700;display:flex;align-items:center;gap:6px;transition:var(--transition)}
+.nav-emergency:hover{background:var(--red-lt)}
+.nav-book{background:var(--teal);color:#fff;padding:10px 20px;border-radius:50px;font-size:.85rem;font-weight:600;transition:var(--transition)}
+.nav-book:hover{background:var(--teal-lt)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.hamburger span{display:block;width:22px;height:2px;background:var(--navy);border-radius:2px;transition:var(--transition)}
+
+/* ─── Hero ──────────────────────────────────────────────────── */
+.hero{position:relative;min-height:92vh;display:flex;align-items:center;background:linear-gradient(130deg,#0B1F3A 0%,#0f2d4a 50%,#0d3d38 100%);overflow:hidden}
+.hero-bg-pattern{position:absolute;inset:0;opacity:.04;background-image:repeating-linear-gradient(45deg,#fff 0,#fff 1px,transparent 0,transparent 50%);background-size:30px 30px}
+.hero-glow{position:absolute;top:-10%;right:-5%;width:600px;height:600px;background:radial-gradient(ellipse at center,rgba(26,127,116,.25) 0%,transparent 65%);pointer-events:none}
+.hero-glow2{position:absolute;bottom:-15%;left:10%;width:400px;height:400px;background:radial-gradient(ellipse at center,rgba(212,168,83,.12) 0%,transparent 65%);pointer-events:none}
+.hero-inner{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:60px;max-width:1200px;margin:0 auto;padding:80px 24px}
+.hero-content{animation:fadeUp .8s ease both}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.9);font-size:.82rem;font-weight:500;padding:8px 18px;border-radius:50px;margin-bottom:28px;backdrop-filter:blur(8px)}
+.hero-badge-dot{width:8px;height:8px;background:#4ade80;border-radius:50%;animation:pulse 2s infinite}
+.hero h1{font-size:clamp(2.4rem,5vw,3.8rem);font-weight:700;color:#fff;margin-bottom:22px;line-height:1.1}
+.hero h1 em{color:var(--teal-lt);font-style:italic}
+.hero-sub{font-size:1.1rem;color:rgba(255,255,255,.72);margin-bottom:40px;max-width:480px;line-height:1.75}
+.hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:48px}
+.hero-book-btn{background:var(--teal);color:#fff;padding:16px 34px;border-radius:50px;font-size:1rem;font-weight:700;display:inline-flex;align-items:center;gap:8px;transition:var(--transition);box-shadow:0 8px 32px rgba(26,127,116,.4)}
+.hero-book-btn:hover{background:var(--teal-lt);transform:translateY(-2px)}
+.hero-emergency-btn{background:rgba(192,57,43,.15);border:2px solid rgba(192,57,43,.5);color:#fff;padding:15px 30px;border-radius:50px;font-size:1rem;font-weight:600;display:inline-flex;align-items:center;gap:8px;transition:var(--transition)}
+.hero-emergency-btn:hover{background:rgba(192,57,43,.3);border-color:var(--red-lt)}
+.hero-stats{display:flex;gap:36px;flex-wrap:wrap}
+.hero-stat{text-align:center}
+.hero-stat-num{font-family:'Fraunces',serif;font-size:2.1rem;font-weight:700;color:#fff;line-height:1}
+.hero-stat-num span{color:var(--teal-lt)}
+.hero-stat-label{font-size:.8rem;color:rgba(255,255,255,.55);margin-top:4px;font-weight:500}
+.hero-visual{animation:fadeUp .8s .2s ease both;position:relative}
+.hero-card{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:24px;padding:32px;backdrop-filter:blur(12px);animation:float 4s ease-in-out infinite}
+.hero-card-header{display:flex;align-items:center;gap:12px;margin-bottom:24px}
+.hero-doc-avatar{width:56px;height:56px;border-radius:14px;background:linear-gradient(135deg,var(--teal),var(--teal-lt));display:flex;align-items:center;justify-content:center;font-size:1.6rem}
+.hero-doc-info h4{color:#fff;font-size:1rem;font-family:'Fraunces',serif}
+.hero-doc-info p{color:rgba(255,255,255,.6);font-size:.82rem}
+.availability-dot{width:8px;height:8px;background:#4ade80;border-radius:50%;display:inline-block;margin-right:6px;animation:pulse 2s infinite}
+.hero-slots{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:20px}
+.slot{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:8px;padding:8px;text-align:center;color:rgba(255,255,255,.8);font-size:.8rem;cursor:pointer;transition:var(--transition)}
+.slot:hover,.slot.active{background:var(--teal);border-color:var(--teal);color:#fff}
+.slot-selected{display:flex;align-items:center;gap:8px;background:rgba(26,127,116,.2);border-radius:10px;padding:12px 16px;color:rgba(255,255,255,.8);font-size:.85rem}
+.floating-badge{position:absolute;top:-20px;right:-20px;background:#fff;border-radius:14px;padding:12px 16px;box-shadow:var(--shadow-lg);display:flex;align-items:center;gap:10px}
+.fb-icon{width:38px;height:38px;background:var(--mist);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+.fb-text strong{display:block;font-size:.88rem;color:var(--navy)}
+.fb-text small{font-size:.75rem;color:var(--slate)}
+.floating-badge2{position:absolute;bottom:-16px;left:-10px;background:var(--gold);border-radius:14px;padding:12px 18px;box-shadow:var(--shadow)}
+.fb2-text{font-family:'Fraunces',serif;font-size:1.1rem;font-weight:700;color:var(--navy)}
+.fb2-sub{font-size:.75rem;color:rgba(11,31,58,.65);font-weight:500}
+
+/* ─── Trust Strip ───────────────────────────────────────────── */
+.trust-strip{background:var(--navy);padding:28px 0}
+.trust-inner{display:flex;align-items:center;justify-content:space-around;flex-wrap:wrap;gap:24px;max-width:1200px;margin:0 auto;padding:0 24px}
+.trust-item{display:flex;align-items:center;gap:12px;color:rgba(255,255,255,.8)}
+.trust-icon{width:44px;height:44px;background:rgba(255,255,255,.08);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0}
+.trust-info strong{display:block;font-size:1.1rem;color:#fff;font-family:'Fraunces',serif}
+.trust-info small{font-size:.78rem;color:rgba(255,255,255,.5);font-weight:400}
+.trust-divider{width:1px;height:40px;background:rgba(255,255,255,.1)}
+
+/* ─── Services / Departments ────────────────────────────────── */
+.services{padding:96px 0;background:var(--cream)}
+.services-header{text-align:center;margin-bottom:56px}
+.services-header .section-sub{margin:0 auto}
+.service-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
+.service-card{background:var(--white);border-radius:var(--radius);padding:30px 24px;transition:var(--transition);border:1px solid rgba(11,31,58,.06);cursor:pointer}
+.service-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg);border-color:var(--teal)}
+.service-icon{width:58px;height:58px;background:var(--mist);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.6rem;margin-bottom:18px;transition:var(--transition)}
+.service-card:hover .service-icon{background:var(--teal);font-size:1.8rem}
+.service-card h3{font-size:1.05rem;font-weight:600;color:var(--navy);margin-bottom:8px;font-family:'Fraunces',serif}
+.service-card p{font-size:.85rem;color:var(--slate);line-height:1.6}
+.service-arrow{display:inline-flex;align-items:center;gap:4px;color:var(--teal);font-size:.82rem;font-weight:600;margin-top:14px;transition:var(--transition)}
+.service-card:hover .service-arrow{gap:8px}
+/* ─── Doctors ───────────────────────────────────────────────── */
+.doctors{padding:96px 0;background:var(--white)}
+.doctors-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:52px;flex-wrap:wrap;gap:20px}
+.doctor-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px}
+.doctor-card{border-radius:var(--radius);overflow:hidden;background:var(--white);border:1px solid rgba(11,31,58,.07);transition:var(--transition)}
+.doctor-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-4px)}
+.doctor-photo{height:220px;background:linear-gradient(135deg,var(--mist),#d1ebe8);display:flex;align-items:center;justify-content:center;font-size:5rem;position:relative}
+.doctor-photo-overlay{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(11,31,58,.4));height:60px}
+.doctor-badge{position:absolute;top:14px;right:14px;background:var(--gold);color:var(--navy);font-size:.72rem;font-weight:700;padding:4px 10px;border-radius:50px}
+.doctor-info{padding:22px}
+.doctor-info h3{font-size:1.05rem;font-family:'Fraunces',serif;color:var(--navy);margin-bottom:4px}
+.doctor-spec{font-size:.82rem;color:var(--teal);font-weight:600;margin-bottom:12px}
+.doctor-meta{display:flex;gap:16px;margin-bottom:14px}
+.doctor-meta-item{display:flex;align-items:center;gap:5px;font-size:.8rem;color:var(--slate)}
+.doctor-stars{display:flex;gap:2px;margin-bottom:14px}
+.star{color:var(--gold);font-size:.9rem}
+.doctor-tags{display:flex;gap:6px;flex-wrap:wrap}
+.doctor-tag{background:var(--mist);color:var(--teal);font-size:.72rem;font-weight:600;padding:3px 10px;border-radius:50px}
+.doctor-book-btn{width:100%;margin-top:16px;background:var(--mist);color:var(--teal);padding:11px;border-radius:10px;font-size:.88rem;font-weight:600;transition:var(--transition);text-align:center;display:block}
+.doctor-book-btn:hover{background:var(--teal);color:#fff}
+
+/* ─── Appointment ───────────────────────────────────────────── */
+.appointment{padding:96px 0;background:linear-gradient(135deg,var(--navy) 0%,#0d3d38 100%);position:relative;overflow:hidden}
+.appt-pattern{position:absolute;inset:0;opacity:.03;background-image:repeating-linear-gradient(45deg,#fff 0,#fff 1px,transparent 0,transparent 50%);background-size:30px 30px}
+.appt-inner{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;max-width:1200px;margin:0 auto;padding:0 24px}
+.appt-content .section-label{color:var(--teal-lt)}
+.appt-content .section-title{color:#fff}
+.appt-content .section-sub{color:rgba(255,255,255,.65)}
+.appt-features{margin-top:32px;display:flex;flex-direction:column;gap:16px}
+.appt-feat{display:flex;align-items:center;gap:12px;color:rgba(255,255,255,.8);font-size:.92rem}
+.appt-feat-icon{width:36px;height:36px;background:rgba(26,127,116,.3);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:.95rem;flex-shrink:0}
+.appt-form{background:#fff;border-radius:20px;padding:38px 36px;box-shadow:var(--shadow-lg)}
+.appt-form h3{font-family:'Fraunces',serif;font-size:1.5rem;color:var(--navy);margin-bottom:8px}
+.appt-form p{font-size:.88rem;color:var(--slate);margin-bottom:28px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.form-group{margin-bottom:16px}
+.form-group label{display:block;font-size:.82rem;font-weight:600;color:var(--navy);margin-bottom:6px}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:12px 16px;border:1.5px solid rgba(11,31,58,.12);border-radius:10px;font-size:.9rem;font-family:'DM Sans',sans-serif;color:var(--navy);background:#fff;transition:var(--transition);outline:none}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--teal);box-shadow:0 0 0 3px rgba(26,127,116,.12)}
+.form-group textarea{resize:vertical;height:90px}
+.form-submit{width:100%;background:var(--teal);color:#fff;padding:15px;border-radius:12px;font-size:1rem;font-weight:700;transition:var(--transition);display:flex;align-items:center;justify-content:center;gap:8px;margin-top:8px}
+.form-submit:hover{background:var(--teal-lt);transform:translateY(-1px);box-shadow:0 6px 24px rgba(26,127,116,.35)}
+.form-note{text-align:center;font-size:.78rem;color:var(--slate);margin-top:12px;display:flex;align-items:center;justify-content:center;gap:6px}
+
+.testimonials{padding:96px 0;background:var(--cream)}
+.testimonials-header{text-align:center;margin-bottom:52px}
+.testi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
+.testi-card{background:#fff;border-radius:var(--radius);padding:32px;border:1px solid rgba(11,31,58,.06);transition:var(--transition);position:relative}
+.testi-card:hover{box-shadow:var(--shadow);transform:translateY(-3px)}
+.testi-quote{font-size:3.5rem;color:var(--mist);font-family:'Fraunces',serif;line-height:1;margin-bottom:4px;position:absolute;top:18px;right:24px}
+.testi-stars{display:flex;gap:3px;margin-bottom:16px}
+.testi-text{font-size:.93rem;color:var(--slate);line-height:1.75;margin-bottom:24px;font-style:italic}
+.testi-author{display:flex;align-items:center;gap:12px}
+
+/* ✅ FIXED AVATAR (IMAGE SUPPORT) */
+.testi-avatar{
+  width:46px;
+  height:46px;
+  border-radius:50%;
+  overflow:hidden;
+  flex-shrink:0;
+  background:#e8f4f3;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.testi-avatar img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+.testi-name{font-weight:600;font-size:.9rem;color:var(--navy)}
+.testi-detail{font-size:.78rem;color:var(--slate)}
+.testi-verified{display:flex;align-items:center;gap:4px;font-size:.72rem;color:var(--teal);font-weight:600;margin-top:3px}
+
+/* ─── Gallery ───────────────────────────────────────────────── */
+.gallery{padding:96px 0;background:var(--white)}
+.gallery-header{text-align:center;margin-bottom:52px}
+.gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(2,200px);gap:16px}
+.gallery-item{border-radius:12px;overflow:hidden;position:relative;cursor:pointer}
+.gallery-item.large{grid-column:span 2;grid-row:span 2}
+.gallery-item.tall{grid-row:span 2}
+.gallery-inner{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:3rem;position:relative;transition:var(--transition)}
+.gallery-item:hover .gallery-inner{transform:scale(1.03)}
+.gallery-overlay{position:absolute;inset:0;background:linear-gradient(transparent 40%,rgba(11,31,58,.8));opacity:0;transition:var(--transition);display:flex;align-items:flex-end;padding:20px}
+.gallery-item:hover .gallery-overlay{opacity:1}
+.gallery-label{color:#fff;font-size:.88rem;font-weight:600;font-family:'Fraunces',serif}
+.g1{background:linear-gradient(135deg,#e8f4f3,#c8e6e3)}
+.g2{background:linear-gradient(135deg,#e8f0f8,#ccd9ee)}
+.g3{background:linear-gradient(135deg,#f5f0e8,#ede0c8)}
+.g4{background:linear-gradient(135deg,#f0e8f5,#e0c8ec)}
+.g5{background:linear-gradient(135deg,#e8f5ec,#c8e8d0)}
+.g6{background:linear-gradient(135deg,#f5e8e8,#ecc8c8)}
+
+/* ─── Certifications ────────────────────────────────────────── */
+.certifications{padding:80px 0;background:var(--navy)}
+.cert-inner{text-align:center;max-width:1200px;margin:0 auto;padding:0 24px}
+.cert-inner .section-label{color:var(--teal-lt)}
+.cert-inner .section-title{color:#fff;margin-bottom:16px}
+.cert-inner .section-sub{color:rgba(255,255,255,.6);margin:0 auto 48px}
+.cert-logos{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:24px}
+.cert-badge{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:20px 30px;display:flex;flex-direction:column;align-items:center;gap:10px;transition:var(--transition)}
+.cert-badge:hover{background:rgba(255,255,255,.1);border-color:var(--teal-lt)}
+.cert-icon{font-size:2rem}
+.cert-name{color:#fff;font-size:.82rem;font-weight:600;text-align:center}
+.cert-year{color:rgba(255,255,255,.45);font-size:.72rem}
+
+/* ─── Emergency ─────────────────────────────────────────────── */
+.emergency-section{padding:72px 0;background:linear-gradient(135deg,var(--red) 0%,#a93226 100%);position:relative;overflow:hidden}
+.emrg-inner{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:48px;max-width:1200px;margin:0 auto;padding:0 24px}
+.emrg-content{color:#fff}
+.emrg-content .section-label{color:rgba(255,255,255,.7)}
+.emrg-content h2{font-family:'Fraunces',serif;font-size:clamp(2rem,4vw,3rem);color:#fff;margin-bottom:16px}
+.emrg-content p{color:rgba(255,255,255,.8);font-size:1rem;line-height:1.7;margin-bottom:32px}
+.emrg-contacts{display:flex;flex-direction:column;gap:16px}
+.emrg-contact-btn{display:flex;align-items:center;gap:16px;background:rgba(255,255,255,.12);border:1.5px solid rgba(255,255,255,.25);border-radius:14px;padding:18px 22px;transition:var(--transition)}
+.emrg-contact-btn:hover{background:rgba(255,255,255,.2);border-color:rgba(255,255,255,.5)}
+.ecb-icon{width:48px;height:48px;background:rgba(255,255,255,.15);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0}
+.ecb-info strong{display:block;color:#fff;font-size:1.1rem;font-weight:700}
+.ecb-info small{color:rgba(255,255,255,.65);font-size:.8rem}
+.emrg-visual{display:flex;flex-direction:column;gap:16px}
+.emrg-stat-card{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:14px;padding:24px;text-align:center;color:#fff}
+.emrg-stat-num{font-family:'Fraunces',serif;font-size:2.4rem;font-weight:700}
+.emrg-stat-label{font-size:.85rem;color:rgba(255,255,255,.7);margin-top:4px}
+.emrg-cards-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+/* ─── WhatsApp Float ────────────────────────────────────────── */
+.whatsapp-float{position:fixed;bottom:28px;right:28px;z-index:9999;display:flex;flex-direction:column;align-items:flex-end;gap:10px}
+.wa-btn{width:58px;height:58px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 28px rgba(37,211,102,.45);transition:var(--transition);animation:pulse 3s infinite}
+.wa-btn:hover{transform:scale(1.1)}
+.wa-btn svg{width:28px;height:28px;fill:#fff}
+.wa-tooltip{background:var(--navy);color:#fff;font-size:.82rem;font-weight:500;padding:8px 14px;border-radius:8px;white-space:nowrap;box-shadow:var(--shadow)}
+
+/* ─── Footer ────────────────────────────────────────────────── */
+.footer{background:#060f1c;color:rgba(255,255,255,.65);padding:72px 0 32px}
+.footer-inner{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;max-width:1200px;margin:0 auto;padding:0 24px;margin-bottom:48px}
+.footer-brand .logo-text{color:#fff}
+.footer-brand .logo-text span{color:var(--teal-lt)}
+.footer-desc{font-size:.88rem;line-height:1.75;margin:16px 0 24px;max-width:280px}
+.footer-socials{display:flex;gap:10px}
+.social-btn{width:38px;height:38px;background:rgba(255,255,255,.07);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;transition:var(--transition);color:rgba(255,255,255,.6)}
+.social-btn:hover{background:var(--teal);color:#fff}
+.footer-col h4{font-family:'Fraunces',serif;color:#fff;font-size:1rem;margin-bottom:20px}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:10px}
+.footer-links li a{font-size:.88rem;transition:var(--transition)}
+.footer-links li a:hover{color:var(--teal-lt)}
+.footer-contact-item{display:flex;align-items:flex-start;gap:10px;font-size:.86rem;margin-bottom:14px}
+.fci-icon{font-size:1rem;margin-top:2px;flex-shrink:0}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.06);padding-top:28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;max-width:1200px;margin:0 auto;padding-left:24px;padding-right:24px}
+.footer-bottom p{font-size:.82rem}
+.footer-bottom-links{display:flex;gap:20px}
+.footer-bottom-links a{font-size:.82rem;transition:var(--transition)}
+.footer-bottom-links a:hover{color:var(--teal-lt)}
+
+/* ─── Back to Top ───────────────────────────────────────────── */
+.back-top{position:fixed;bottom:100px;right:28px;width:44px;height:44px;background:var(--navy);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.2rem;box-shadow:var(--shadow);transition:var(--transition);opacity:0;pointer-events:none;z-index:998}
+.back-top.show{opacity:1;pointer-events:all}
+.back-top:hover{background:var(--teal);transform:translateY(-3px)}
+
+/* ─── Notification ──────────────────────────────────────────── */
+.notification{position:fixed;top:24px;right:24px;background:var(--navy);color:#fff;padding:16px 22px;border-radius:14px;box-shadow:var(--shadow-lg);z-index:9999;transform:translateX(120%);transition:var(--transition);display:flex;align-items:center;gap:12px;max-width:320px}
+.notification.show{transform:translateX(0)}
+.notif-icon{font-size:1.4rem}
+.notif-text strong{display:block;font-size:.9rem;margin-bottom:2px}
+.notif-text small{font-size:.8rem;color:rgba(255,255,255,.65)}
+
+/* ─── Mobile Navigation ─────────────────────────────────────── */
+.mobile-menu{position:fixed;inset:0;background:var(--navy);z-index:9998;display:flex;flex-direction:column;padding:80px 32px 40px;transform:translateX(-100%);transition:var(--transition)}
+.mobile-menu.open{transform:translateX(0)}
+.mobile-nav-links{list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:auto}
+.mobile-nav-links a{display:block;font-size:1.5rem;font-family:'Fraunces',serif;color:rgba(255,255,255,.8);padding:12px 0;border-bottom:1px solid rgba(255,255,255,.07);transition:var(--transition)}
+.mobile-nav-links a:hover{color:var(--teal-lt)}
+.mobile-ctas{display:flex;flex-direction:column;gap:12px;margin-top:40px}
+.mobile-close{position:absolute;top:20px;right:24px;color:#fff;font-size:1.6rem;cursor:pointer;width:40px;height:40px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.1);border-radius:50%}
+
+/* ─── Responsive ────────────────────────────────────────────── */
+@media(max-width:1024px){
+  .hero-inner,.appt-inner,.emrg-inner{grid-template-columns:1fr}
+  .hero-visual,.appt-form{max-width:480px}
+  .footer-inner{grid-template-columns:1fr 1fr;gap:32px}
+  .gallery-grid{grid-template-columns:repeat(3,1fr);grid-template-rows:auto}
+  .gallery-item.large{grid-column:span 2}
+}
+@media(max-width:768px){
+  .nav-links,.nav-ctas{display:none}
+  .hamburger{display:flex}
+  .hero-inner{gap:40px;padding:60px 24px}
+  .hero-visual{display:none}
+  .hero-stats{gap:20px}
+  .grid-2,.grid-3,.grid-4,.form-row{grid-template-columns:1fr}
+  .doctors-header{flex-direction:column;align-items:flex-start}
+  .gallery-grid{grid-template-columns:1fr 1fr;grid-template-rows:auto}
+  .gallery-item.large,.gallery-item.tall{grid-column:span 1;grid-row:span 1}
+  .trust-divider{display:none}
+  .footer-inner{grid-template-columns:1fr}
+  .footer-bottom{flex-direction:column;text-align:center}
+  .emrg-cards-row{grid-template-columns:1fr}
+  .cert-logos{gap:14px}
+  .cert-badge{padding:14px 20px}
+}
+
+/* ─── Scroll Animations ─────────────────────────────────────── */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .65s ease,transform .65s ease}
+.reveal.active{opacity:1;transform:translateY(0)}
+.reveal-delay-1{transition-delay:.1s}
+.reveal-delay-2{transition-delay:.2s}
+.reveal-delay-3{transition-delay:.3s}
+.reveal-delay-4{transition-delay:.4s}
+</style>
+</head>
+<body>
+    <!-- ── Emergency Banner ───────────────────────────────────────── -->
+<div class="emergency-banner">
+  <strong></strong>
+  24/7 Emergency Line: <a href="tel:+18001234567">+1 800 123 4567</a>
+  &nbsp;|&nbsp; Ambulance: <a href="tel:911">911</a>
+  &nbsp;|&nbsp; WhatsApp: <a href="https://wa.me/18001234567">Chat Now</a>
+</div>
+
+<!-- ── Navigation ─────────────────────────────────────────────── -->
+<nav class="navbar" role="navigation" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="#" class="logo" aria-label="MediCare Plus Home">
+      <div class="logo-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 2v20M2 12h20" /><circle cx="12" cy="12" r="3"/></svg>
+      </div>
+      <div class="logo-text">MediCare Plus <span>Compassionate Care</span></div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#doctors">Doctors</a></li>
+      <li><a href="#appointment">Appointment</a></li>
+      <li><a href="#testimonials">Reviews</a></li>
+      <li><a href="#gallery">Facilities</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-ctas">
+      <a href="tel:+18001234567" class="nav-emergency">🚨 Emergency</a>
+      <a href="#appointment" class="nav-book">Book Now</a>
+    </div>
+    <div class="hamburger" id="hamburger" aria-label="Open menu" role="button" tabindex="0">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+<!-- ── Mobile Menu ─────────────────────────────────────────────── -->
+<div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true">
+  <button class="mobile-close" id="mobileClose" aria-label="Close menu">✕</button>
+  <ul class="mobile-nav-links">
+    <li><a href="#services" onclick="closeMobile()">Services</a></li>
+    <li><a href="#doctors" onclick="closeMobile()">Doctors</a></li>
+    <li><a href="#appointment" onclick="closeMobile()">Appointment</a></li>
+    <li><a href="#testimonials" onclick="closeMobile()">Reviews</a></li>
+    <li><a href="#gallery" onclick="closeMobile()">Facilities</a></li>
+    <li><a href="#contact" onclick="closeMobile()">Contact</a></li>
+  </ul>
+  <div class="mobile-ctas">
+    <a href="tel:+18001234567" class="btn-primary" style="justify-content:center;background:var(--red)">🚨 Emergency: +1 800 123 4567</a>
+    <a href="#appointment" class="btn-primary" style="justify-content:center" onclick="closeMobile()">📅 Book Appointment</a>
+    <a href="https://wa.me/18001234567" class="btn-outline" style="color:#fff;justify-content:center">💬 WhatsApp Us</a>
+  </div>
+</div>
+
+<!-- ── Hero ───────────────────────────────────────────────────── -->
+<section class="hero" id="home" aria-label="Hero section">
+  <div class="hero-bg-pattern"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-glow2"></div>
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="hero-badge-dot"></span>
+        Accepting New Patients · Est. 1994
+      </div>
+      <h1>Your Health Is Our <em>Sacred</em> Promise</h1>
+      <p class="hero-sub">World-class specialists, compassionate care, and cutting-edge technology — all under one roof. Because you deserve nothing less than excellence.</p>
+      <div class="hero-ctas">
+        <a href="#appointment" class="hero-book-btn">
+          📅 Book Appointment
+        </a>
+        <a href="tel:+18001234567" class="hero-emergency-btn">
+          🚨 Emergency: 1-800-123-4567
+        </a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-num">50<span>K+</span></div>
+          <div class="hero-stat-label">Patients Served</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">120<span>+</span></div>
+          <div class="hero-stat-label">Specialist Doctors</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">30<span>yr</span></div>
+          <div class="hero-stat-label">Years of Excellence</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">98<span>%</span></div>
+          <div class="hero-stat-label">Patient Satisfaction</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="floating-badge">
+        <div class="fb-icon">✅</div>
+        <div class="fb-text">
+          <strong>Appointment Confirmed</strong>
+          <small>Dr. Sarah — Tomorrow 10:30 AM</small>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="hero-card-header">
+          <div class="hero-doc-avatar">👨‍⚕️</div>
+          <div class="hero-doc-info">
+            <h4>Dr. James Wilson</h4>
+            <p>Cardiologist · 18 yrs exp.</p>
+            <p><span class="availability-dot"></span><small style="color:#4ade80;font-size:.78rem">Available Today</small></p>
+          </div>
+        </div>
+        <p style="color:rgba(255,255,255,.6);font-size:.82rem;margin-bottom:14px">Select a time slot:</p>
+        <div class="hero-slots">
+          <div class="slot">9:00 AM</div>
+          <div class="slot active">10:30 AM</div>
+          <div class="slot">11:00 AM</div>
+          <div class="slot">2:00 PM</div>
+          <div class="slot">3:30 PM</div>
+          <div class="slot">4:00 PM</div>
+        </div>
+        <div class="slot-selected">
+          ✓ 10:30 AM selected — <strong style="color:var(--teal-lt)">Confirm →</strong>
+        </div>
+      </div>
+      <div class="floating-badge2">
+        <div class="fb2-text">⭐ 4.9 / 5.0</div>
+        <div class="fb2-sub">2,400+ verified reviews</div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ── Trust Strip ─────────────────────────────────────────────── -->
+<div class="trust-strip" role="complementary" aria-label="Trust indicators">
+  <div class="trust-inner">
+    <div class="trust-item">
+      <div class="trust-icon">🏥</div>
+      <div class="trust-info">
+        <strong>JCI Accredited</strong>
+        <small>International Quality</small>
+      </div>
+    </div>
+    <div class="trust-divider"></div>
+    <div class="trust-item">
+      <div class="trust-icon">🩺</div>
+      <div class="trust-info">
+        <strong>120+ Specialists</strong>
+        <small>Board Certified</small>
+      </div>
+    </div>
+    <div class="trust-divider"></div>
+    <div class="trust-item">
+      <div class="trust-icon">⏱️</div>
+      <div class="trust-info">
+        <strong>&lt;15 Min Wait</strong>
+        <small>Average ER Response</small>
+      </div>
+    </div>
+    <div class="trust-divider"></div>
+    <div class="trust-item">
+      <div class="trust-icon">🔬</div>
+      <div class="trust-info">
+        <strong>ISO 9001:2015</strong>
+        <small>Lab Certified</small>
+      </div>
+    </div>
+    <div class="trust-divider"></div>
+    <div class="trust-item">
+      <div class="trust-icon">💳</div>
+      <div class="trust-info">
+        <strong>All Insurances</strong>
+        <small>Accepted</small>
+      </div>
+    </div>
+    <div class="trust-divider"></div>
+    <div class="trust-item">
+      <div class="trust-icon">🌐</div>
+      <div class="trust-info">
+        <strong>30+ Languages</strong>
+        <small>Multilingual Staff</small>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── Services / Departments ─────────────────────────────────── -->
+<section class="services" id="services" aria-label="Medical departments and services">
+  <div class="container">
+    <div class="services-header reveal">
+      <p class="section-label">Our Departments</p>
+      <h2 class="section-title">Comprehensive Care,<br>Every Specialty</h2>
+      <p class="section-sub">From routine checkups to complex surgeries, our 24 specialized departments cover every aspect of your health journey.</p>
+    </div>
+    <div class="service-grid">
+      <div class="service-card reveal reveal-delay-1">
+        <div class="service-icon">❤️</div>
+        <h3>Cardiology</h3>
+        <p>Advanced heart care with state-of-the-art cath labs and cardiac surgery suites.</p>
+        <a href="#appointment" class="service-arrow">Book Consultation →</a>
+      </div>
+      <div class="service-card reveal reveal-delay-2">
+        <div class="service-icon">🧠</div>
+        <h3>Neurology</h3>
+        <p>Expert diagnosis and treatment for neurological conditions, from migraines to epilepsy.</p>
+        <a href="#appointment" class="service-arrow">Book Consultation →</a>
+      </div>
+      <div class="service-card reveal reveal-delay-3">
+        <div class="service-icon">🦴</div>
+        <h3>Orthopedics</h3>
+        <p>Joint replacement, sports medicine, and minimally invasive orthopedic surgeries.</p>
+        <a href="#appointment" class="service-arrow">Book Consultation →</a>
+      </div>
+      <div class="service-card reveal reveal-delay-4">
+        <div class="service-icon">🤰</div>
+        <h3>Obstetrics & Gynecology</h3>
+        <p>Complete women's health services from prenatal care through menopause management.</p>
+        <a href="#appointment" class="service-arrow">Book Consultation →</a>
+      </div>
+      <div class="service-card reveal reveal-delay-1">
+        <div class="service-icon">👶</div>
+        <h3>Pediatrics</h3>
+        <p>Compassionate care for children from newborns through adolescence, 24/7.</p>
+        <a href="#appointment" class="service-arrow">Book Consultation →</a>
+      </div>
+      <div class="service-card reveal reveal-delay-2">
+        <div class="service-icon">👁️</div>
+        <h3>Ophthalmology</h3>
+        <p>LASIK, cataract surgery, retinal care, and comprehensive eye health screenings.</p>
+        <a href="#appointment" class="service-arrow">Book Consultation →</a>
+      </div>
+      <div class="service-card reveal reveal-delay-3">
+        <div class="service-icon">🦷</div>
+        <h3>Dental & Oral Surgery</h3>
+        <p>Advanced dental care including implants, orthodontics, and maxillofacial surgery.</p>
+        <a href="#appointment" class="service-arrow">Book Consultation →</a>
+      </div>
+      <div class="service-card reveal reveal-delay-4">
+        <div class="service-icon">🩻</div>
+        <h3>Radiology & Imaging</h3>
+        <p>3T MRI, 64-slice CT, digital X-ray, and interventional radiology under one roof.</p>
+        <a href="#appointment" class="service-arrow">Book Consultation →</a>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ── Doctors ─────────────────────────────────────────────────── -->
+<section class="doctors" id="doctors" aria-label="Our specialist doctors">
+  <div class="container">
+    <div class="doctors-header">
+      <div class="reveal">
+        <p class="section-label">Meet Our Team</p>
+        <h2 class="section-title">Doctors Who Truly Care</h2>
+        <p class="section-sub">Board-certified specialists with decades of combined experience — and the compassion to match.</p>
+      </div>
+      <a href="#appointment" class="btn-primary reveal" style="flex-shrink:0">View All Doctors →</a>
+    </div>
+    <div class="doctor-grid">
+      <div class="doctor-card reveal reveal-delay-1">
+        <div class="doctor-photo">
+
+  <img 
+    src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=1200&auto=format&fit=crop"
+    alt="Doctor"
+  >
+
+  <div class="doctor-photo-overlay"></div>
+
+</div>
+          <div class="doctor-photo-overlay"></div>
+          <div class="doctor-badge">Top Rated</div>
+        </div>
+        <div class="doctor-info">
+          <h3>Dr. Sarah Mitchell</h3>
+          <p class="doctor-spec">Senior Cardiologist</p>
+          <div class="doctor-meta">
+            <span class="doctor-meta-item">🎓 Harvard MD</span>
+            <span class="doctor-meta-item">📅 22 yrs exp</span>
+          </div>
+          <div class="doctor-stars">
+            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+            <small style="color:var(--slate);font-size:.8rem;margin-left:6px">5.0 (312 reviews)</small>
+          </div>
+          <div class="doctor-tags">
+            <span class="doctor-tag">Heart Failure</span>
+            <span class="doctor-tag">Interventional</span>
+            <span class="doctor-tag">Echo</span>
+          </div>
+          <a href="#appointment" class="doctor-book-btn">Book Appointment</a>
+        </div>
+      </div>
+      <div class="doctor-card reveal reveal-delay-2">
+        <div class="doctor-photo">
+
+  <img 
+    src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=1200&auto=format&fit=crop"
+    alt="Doctor"
+  >
+
+  <div class="doctor-photo-overlay"></div>
+
+</div>
+          <div class="doctor-photo-overlay"></div>
+          <div class="doctor-badge">⭐ Expert</div>
+        </div>
+        <div class="doctor-info">
+          <h3>Dr. Raj Patel</h3>
+          <p class="doctor-spec">Neurosurgeon</p>
+          <div class="doctor-meta">
+            <span class="doctor-meta-item">🎓 Johns Hopkins</span>
+            <span class="doctor-meta-item">📅 18 yrs exp</span>
+          </div>
+          <div class="doctor-stars">
+            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+            <small style="color:var(--slate);font-size:.8rem;margin-left:6px">4.9 (278 reviews)</small>
+          </div>
+          <div class="doctor-tags">
+            <span class="doctor-tag">Brain Tumor</span>
+            <span class="doctor-tag">Spine Surgery</span>
+          </div>
+          <a href="#appointment" class="doctor-book-btn">Book Appointment</a>
+        </div>
+      </div>
+      <div class="doctor-card reveal reveal-delay-3">
+       <div class="doctor-photo">
+
+  <img 
+    src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=1200&auto=format&fit=crop"
+    alt="Doctor"
+  >
+
+  <div class="doctor-photo-overlay"></div>
+
+</div>
+          <div class="doctor-photo-overlay"></div>
+          <div class="doctor-badge">Top Rated</div>
+        </div>
+        <div class="doctor-info">
+          <h3>Dr. Amelia Chen</h3>
+          <p class="doctor-spec">Pediatric Specialist</p>
+          <div class="doctor-meta">
+            <span class="doctor-meta-item">🎓 Mayo Clinic</span>
+            <span class="doctor-meta-item">📅 15 yrs exp</span>
+          </div>
+          <div class="doctor-stars">
+            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+            <small style="color:var(--slate);font-size:.8rem;margin-left:6px">4.9 (445 reviews)</small>
+          </div>
+          <div class="doctor-tags">
+            <span class="doctor-tag">Neonatal</span>
+            <span class="doctor-tag">Child Dev.</span>
+            <span class="doctor-tag">Vaccines</span>
+          </div>
+          <a href="#appointment" class="doctor-book-btn">Book Appointment</a>
+        </div>
+      </div>
+      <div class="doctor-card reveal reveal-delay-4">
+       <div class="doctor-photo">
+
+  <img 
+    src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=1200&auto=format&fit=crop"
+    alt="Doctor"
+  >
+
+  <div class="doctor-photo-overlay"></div>
+
+</div>
+          <div class="doctor-photo-overlay"></div>
+          <div class="doctor-badge">⭐ Expert</div>
+        </div>
+        <div class="doctor-info">
+          <h3>Dr. Marcus Lee</h3>
+          <p class="doctor-spec">Orthopedic Surgeon</p>
+          <div class="doctor-meta">
+            <span class="doctor-meta-item">🎓 Stanford MD</span>
+            <span class="doctor-meta-item">📅 20 yrs exp</span>
+          </div>
+          <div class="doctor-stars">
+            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+            <small style="color:var(--slate);font-size:.8rem;margin-left:6px">4.8 (198 reviews)</small>
+          </div>
+          <div class="doctor-tags">
+            <span class="doctor-tag">Knee Replacement</span>
+            <span class="doctor-tag">Sports Injury</span>
+          </div>
+          <a href="#appointment" class="doctor-book-btn">Book Appointment</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ── Appointment Booking ─────────────────────────────────────── -->
+<section class="appointment" id="appointment" aria-label="Book an appointment">
+  <div class="appt-pattern"></div>
+  <div class="appt-inner">
+    <div class="appt-content reveal">
+      <p class="section-label">Schedule a Visit</p>
+      <h2 class="section-title">Book Your Appointment in Under 60 Seconds</h2>
+      <p class="section-sub">No waiting on hold. No confusion. Just easy, instant scheduling with your preferred doctor.</p>
+      <div class="appt-features">
+        <div class="appt-feat">
+          <div class="appt-feat-icon">✅</div>
+          <span>Instant confirmation via SMS & Email</span>
+        </div>
+        <div class="appt-feat">
+          <div class="appt-feat-icon">🔔</div>
+          <span>Automatic reminders 24h before</span>
+        </div>
+        <div class="appt-feat">
+          <div class="appt-feat-icon">📋</div>
+          <span>Share medical history securely online</span>
+        </div>
+        <div class="appt-feat">
+          <div class="appt-feat-icon">💬</div>
+          <span>WhatsApp & telemedicine available</span>
+        </div>
+        <div class="appt-feat">
+          <div class="appt-feat-icon">🔒</div>
+          <span>HIPAA-compliant & fully encrypted</span>
+        </div>
+      </div>
+    </div>
+    <div class="appt-form reveal reveal-delay-2" id="bookingForm">
+      <h3>Request an Appointment</h3>
+      <p>Fill in the form and we'll confirm within 2 hours.</p>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="fname">First Name *</label>
+          <input type="text" id="fname" placeholder="John" required>
+        </div>
+        <div class="form-group">
+          <label for="lname">Last Name *</label>
+          <input type="text" id="lname" placeholder="Smith" required>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="phone">Phone Number *</label>
+          <input type="tel" id="phone" placeholder="+1 (555) 000-0000" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" placeholder="john@email.com">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="dept">Department *</label>
+          <select id="dept" required>
+            <option value="">Select Department</option>
+            <option>Cardiology</option>
+            <option>Neurology</option>
+            <option>Orthopedics</option>
+            <option>Pediatrics</option>
+            <option>Obstetrics & Gynecology</option>
+            <option>Ophthalmology</option>
+            <option>Dental & Oral Surgery</option>
+            <option>General Medicine</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="date">Preferred Date *</label>
+          <input type="date" id="date" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="message">Describe Your Symptoms (Optional)</label>
+        <textarea id="message" placeholder="Briefly describe what you're experiencing..."></textarea>
+      </div>
+      <button class="form-submit" onclick="submitForm()">
+        📅 Confirm Appointment Request
+      </button>
+      <p class="form-note">🔒 Your information is 100% private and secure</p>
+    </div>
+  </div>
+</section>
+<!-- ── Testimonials ──────────────────────────────────────────── -->
+<section class="testimonials" id="testimonials" aria-label="Patient testimonials">
+
+  <div class="container">
+
+    <div class="testimonials-header reveal">
+      <p class="section-label">Patient Stories</p>
+      <h2 class="section-title">Real People, Real Results</h2>
+      <p class="section-sub" style="margin:0 auto">
+        Thousands of patients trust us with their most important asset — their health.
+      </p>
+    </div>
+
+    <div class="testi-grid">
+
+      <!-- CARD 1 -->
+      <div class="testi-card reveal reveal-delay-1">
+
+        <div class="testi-quote">"</div>
+
+        <div class="testi-stars">
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+        </div>
+
+        <p class="testi-text">
+          After my bypass surgery, I thought my life would never be the same. Dr. Mitchell and her team saved my life.
+        </p>
+
+        <div class="testi-author">
+
+          <div class="testi-avatar">
+            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=200&auto=format&fit=crop" alt="Patient">
+          </div>
+
+          <div>
+            <p class="testi-name">Robert H., 67</p>
+            <p class="testi-detail">Cardiac Surgery Patient</p>
+            <p class="testi-verified">✓ Verified Patient</p>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- CARD 2 -->
+      <div class="testi-card reveal reveal-delay-2">
+
+        <div class="testi-quote">"</div>
+
+        <div class="testi-stars">
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+        </div>
+
+        <p class="testi-text">
+          Our baby was in NICU, and the doctors handled everything with care and professionalism.
+        </p>
+
+        <div class="testi-author">
+
+          <div class="testi-avatar">
+            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=200&auto=format&fit=crop" alt="Patient">
+          </div>
+
+          <div>
+            <p class="testi-name">Priya M., 32</p>
+            <p class="testi-detail">NICU Parent</p>
+            <p class="testi-verified">✓ Verified Patient</p>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- CARD 3 -->
+      <div class="testi-card reveal reveal-delay-3">
+
+        <div class="testi-quote">"</div>
+
+        <div class="testi-stars">
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+        </div>
+
+        <p class="testi-text">
+          My knee surgery went perfectly. I am walking without pain now.
+        </p>
+
+        <div class="testi-author">
+
+          <div class="testi-avatar">
+            <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=200&auto=format&fit=crop" alt="Patient">
+          </div>
+
+          <div>
+            <p class="testi-name">David K., 54</p>
+            <p class="testi-detail">Orthopedic Patient</p>
+            <p class="testi-verified">✓ Verified Patient</p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- rating box -->
+    <div style="text-align:center;margin-top:44px" class="reveal">
+
+      <div style="display:inline-flex;align-items:center;gap:28px;background:#fff;border:1px solid rgba(11,31,58,.07);border-radius:16px;padding:24px 36px;box-shadow:var(--shadow)">
+
+        <div>
+          <div style="font-family:'Fraunces',serif;font-size:3rem;font-weight:700;color:var(--navy)">4.9</div>
+          <div style="display:flex;gap:3px;margin:6px 0">
+            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+          </div>
+          <div style="font-size:.8rem;color:var(--slate)">Overall Rating</div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+    <!-- Aggregate rating -->
+    <div style="text-align:center;margin-top:44px" class="reveal">
+      <div style="display:inline-flex;align-items:center;gap:28px;background:#fff;border:1px solid rgba(11,31,58,.07);border-radius:16px;padding:24px 36px;box-shadow:var(--shadow)">
+        <div>
+          <div style="font-family:'Fraunces',serif;font-size:3rem;font-weight:700;color:var(--navy);line-height:1">4.9</div>
+          <div style="display:flex;gap:3px;margin:6px 0"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+          <div style="font-size:.8rem;color:var(--slate)">Overall Rating</div>
+        </div>
+        <div style="width:1px;height:60px;background:rgba(11,31,58,.08)"></div>
+        <div style="text-align:left">
+          <div style="font-size:.85rem;color:var(--slate);margin-bottom:4px">Based on <strong style="color:var(--navy)">2,418 verified reviews</strong></div>
+          <div style="display:flex;flex-direction:column;gap:4px">
+            <div style="display:flex;align-items:center;gap:8px;font-size:.78rem">
+              <span style="color:var(--slate);width:20px">5★</span>
+              <div style="flex:1;height:6px;background:#e8f4f3;border-radius:3px;overflow:hidden"><div style="width:88%;height:100%;background:var(--teal);border-radius:3px"></div></div>
+              <span style="color:var(--slate)">88%</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:8px;font-size:.78rem">
+              <span style="color:var(--slate);width:20px">4★</span>
+              <div style="flex:1;height:6px;background:#e8f4f3;border-radius:3px;overflow:hidden"><div style="width:9%;height:100%;background:var(--teal-lt);border-radius:3px"></div></div>
+              <span style="color:var(--slate)">9%</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:8px;font-size:.78rem">
+              <span style="color:var(--slate);width:20px">3★</span>
+              <div style="flex:1;height:6px;background:#e8f4f3;border-radius:3px;overflow:hidden"><div style="width:3%;height:100%;background:#ccc;border-radius:3px"></div></div>
+              <span style="color:var(--slate)">3%</span>
+            </div>
+          </div>
+        </div>
+        <div style="width:1px;height:60px;background:rgba(11,31,58,.08)"></div>
+        <div style="display:flex;gap:12px">
+          <div style="text-align:center;background:var(--mist);border-radius:12px;padding:14px 20px">
+            <div style="font-size:1.3rem;margin-bottom:4px">🏥</div>
+            <div style="font-size:.72rem;font-weight:600;color:var(--teal)">Google</div>
+          </div>
+          <div style="text-align:center;background:#fef3ec;border-radius:12px;padding:14px 20px">
+            <div style="font-size:1.3rem;margin-bottom:4px">💙</div>
+            <div style="font-size:.72rem;font-weight:600;color:#e67e22">Healthgrades</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Gallery / Infrastructure ───────────────────────────────── -->
+<section class="gallery" id="gallery" aria-label="Hospital facilities gallery">
+  <div class="container">
+    <div class="gallery-header reveal">
+      <p class="section-label">Our Facilities</p>
+      <h2 class="section-title">World-Class Infrastructure</h2>
+      <p class="section-sub" style="margin:0 auto">500-bed hospital with the latest medical technology, designed around patient comfort and recovery.</p>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item large reveal">
+        <div class="gallery-inner g1">🏥</div>
+        <div class="gallery-overlay"><span class="gallery-label">Main Hospital Building</span></div>
+      </div>
+      <div class="gallery-item reveal reveal-delay-1">
+        <div class="gallery-inner g2">🩻</div>
+        <div class="gallery-overlay"><span class="gallery-label">3T MRI Suite</span></div>
+      </div>
+      <div class="gallery-item reveal reveal-delay-2">
+        <div class="gallery-inner g3">💊</div>
+        <div class="gallery-overlay"><span class="gallery-label">In-House Pharmacy</span></div>
+      </div>
+      <div class="gallery-item tall reveal reveal-delay-1">
+        <div class="gallery-inner g4">🔬</div>
+        <div class="gallery-overlay"><span class="gallery-label">ISO-Certified Labs</span></div>
+      </div>
+      <div class="gallery-item reveal reveal-delay-3">
+        <div class="gallery-inner g5">🛏️</div>
+        <div class="gallery-overlay"><span class="gallery-label">Private Patient Rooms</span></div>
+      </div>
+      <div class="gallery-item reveal reveal-delay-4">
+        <div class="gallery-inner g6">🚑</div>
+        <div class="gallery-overlay"><span class="gallery-label">Ambulance Bay</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Certifications ─────────────────────────────────────────── -->
+<section class="certifications" id="certifications" aria-label="Certifications and accreditations">
+  <div class="cert-inner">
+    <p class="section-label">Accreditations & Awards</p>
+    <h2 class="section-title">Recognized for Excellence</h2>
+    <p class="section-sub">Our quality commitments are backed by the most rigorous international certifications in healthcare.</p>
+    <div class="cert-logos reveal">
+      <div class="cert-badge">
+        <div class="cert-icon">🏆</div>
+        <div class="cert-name">JCI Accredited</div>
+        <div class="cert-year">Since 2005</div>
+      </div>
+      <div class="cert-badge">
+        <div class="cert-icon">🔬</div>
+        <div class="cert-name">ISO 9001:2015</div>
+        <div class="cert-year">Quality Mgmt</div>
+      </div>
+      <div class="cert-badge">
+        <div class="cert-icon">🏥</div>
+        <div class="cert-name">NABH Certified</div>
+        <div class="cert-year">National Board</div>
+      </div>
+      <div class="cert-badge">
+        <div class="cert-icon">⭐</div>
+        <div class="cert-name">Best Hospital 2024</div>
+        <div class="cert-year">Health Excellence Award</div>
+      </div>
+      <div class="cert-badge">
+        <div class="cert-icon">🔒</div>
+        <div class="cert-name">HIPAA Compliant</div>
+        <div class="cert-year">Data Security</div>
+      </div>
+      <div class="cert-badge">
+        <div class="cert-icon">💚</div>
+        <div class="cert-name">Green Hospital</div>
+        <div class="cert-year">Eco-Certified</div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ── Emergency Section ──────────────────────────────────────── -->
+<section class="emergency-section" id="emergency" aria-label="Emergency contacts">
+  <div class="emrg-inner">
+    <div class="emrg-content reveal">
+      <p class="section-label">Available 24/7</p>
+      <h2>Emergency? We're Always Here.</h2>
+      <p>Our ER team is ready around the clock. Average response time under 8 minutes. Don't wait — every second matters.</p>
+      <div class="emrg-contacts">
+        <a href="tel:+18001234567" class="emrg-contact-btn">
+          <div class="ecb-icon">📞</div>
+          <div class="ecb-info">
+            <strong>+1 800 123 4567</strong>
+            <small>24/7 Emergency Hotline</small>
+          </div>
+        </a>
+        <a href="https://wa.me/18001234567" class="emrg-contact-btn">
+          <div class="ecb-icon">💬</div>
+          <div class="ecb-info">
+            <strong>WhatsApp Emergency</strong>
+            <small>Message us instantly</small>
+          </div>
+        </a>
+        <a href="tel:911" class="emrg-contact-btn">
+          <div class="ecb-icon">🚑</div>
+          <div class="ecb-info">
+            <strong>Ambulance: 911</strong>
+            <small>Life-threatening emergencies</small>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="emrg-visual reveal reveal-delay-2">
+      <div class="emrg-cards-row">
+        <div class="emrg-stat-card">
+          <div class="emrg-stat-num">&lt;8min</div>
+          <div class="emrg-stat-label">Avg ER Response</div>
+        </div>
+        <div class="emrg-stat-card">
+          <div class="emrg-stat-num">24/7</div>
+          <div class="emrg-stat-label">Always Available</div>
+        </div>
+      </div>
+      <div class="emrg-stat-card">
+        <div class="emrg-stat-num">500+</div>
+        <div class="emrg-stat-label">Emergencies Successfully Treated Monthly</div>
+      </div>
+      <div style="background:rgba(255,255,255,.1);border:1.5px solid rgba(255,255,255,.2);border-radius:14px;padding:20px;color:#fff;font-size:.88rem;line-height:1.65">
+        <strong style="display:block;margin-bottom:6px">📍 Find Us</strong>
+        123 Healthcare Boulevard, Medical District<br>
+        New York, NY 10001<br>
+        <small style="color:rgba(255,255,255,.6)">Open 365 days · No appointment needed for emergencies</small>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ── Footer ─────────────────────────────────────────────────── -->
+<footer class="footer" id="contact" aria-label="Footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="logo" style="margin-bottom:16px">
+        <div class="logo-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2v20M2 12h20" /><circle cx="12" cy="12" r="3"/></svg>
+        </div>
+        <div class="logo-text">MediCare Plus <span>Compassionate Care</span></div>
+      </div>
+      <p class="footer-desc">Providing compassionate, world-class healthcare since 1994. Your health is our mission — every patient, every day.</p>
+      <div class="footer-socials">
+        <a href="#" class="social-btn" aria-label="Facebook">📘</a>
+        <a href="#" class="social-btn" aria-label="Instagram">📷</a>
+        <a href="#" class="social-btn" aria-label="Twitter">🐦</a>
+        <a href="#" class="social-btn" aria-label="LinkedIn">💼</a>
+        <a href="https://wa.me/18001234567" class="social-btn" aria-label="WhatsApp">💬</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul class="footer-links">
+        <li><a href="#services">Our Services</a></li>
+        <li><a href="#doctors">Find a Doctor</a></li>
+        <li><a href="#appointment">Book Appointment</a></li>
+        <li><a href="#gallery">Our Facilities</a></li>
+        <li><a href="#testimonials">Patient Reviews</a></li>
+        <li><a href="#">Health Blog</a></li>
+        <li><a href="#">Insurance Partners</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Departments</h4>
+      <ul class="footer-links">
+        <li><a href="#services">Cardiology</a></li>
+        <li><a href="#services">Neurology</a></li>
+        <li><a href="#services">Orthopedics</a></li>
+        <li><a href="#services">Pediatrics</a></li>
+        <li><a href="#services">OB/GYN</a></li>
+        <li><a href="#services">Ophthalmology</a></li>
+        <li><a href="#services">All Departments →</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact Us</h4>
+      <div class="footer-contact-item">
+        <span class="fci-icon">📍</span>
+        <span>123 Healthcare Blvd, Medical District, New York, NY 10001</span>
+      </div>
+      <div class="footer-contact-item">
+        <span class="fci-icon">📞</span>
+        <span>+1 800 123 4567 (24/7)</span>
+      </div>
+      <div class="footer-contact-item">
+        <span class="fci-icon">✉️</span>
+        <span>care@medicareplus.com</span>
+      </div>
+      <div class="footer-contact-item">
+        <span class="fci-icon">🕐</span>
+        <span>Mon–Fri: 8AM–8PM<br>Sat–Sun: 9AM–5PM<br>Emergency: 24/7</span>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2024 MediCare Plus. All rights reserved. HIPAA Compliant · JCI Accredited</p>
+    <div class="footer-bottom-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="#">Accessibility</a>
+      <a href="#">Sitemap</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ── WhatsApp Float ──────────────────────────────────────────── -->
+<div class="whatsapp-float">
+  <div class="wa-tooltip" id="waTooltip">Chat with us on WhatsApp 💬</div>
+  <a href="https://wa.me/18001234567" class="wa-btn" aria-label="Chat on WhatsApp" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+</div>
+
+<!-- ── Back to Top ─────────────────────────────────────────────── -->
+<button class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">↑</button>
+
+<!-- ── Notification Toast ─────────────────────────────────────── -->
+<div class="notification" id="notification">
+  <div class="notif-icon">✅</div>
+  <div class="notif-text">
+    <strong>Appointment Request Sent!</strong>
+    <small>We'll confirm within 2 hours via SMS.</small>
+  </div>
+</div>
+
+<script>
+    // ── Mobile Menu ──────────────────────────────────────────────────
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+const mobileClose = document.getElementById('mobileClose');
+hamburger.addEventListener('click', () => mobileMenu.classList.add('open'));
+mobileClose.addEventListener('click', () => mobileMenu.classList.remove('open'));
+function closeMobile() { mobileMenu.classList.remove('open'); }
+
+// ── Scroll Reveal ────────────────────────────────────────────────
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('active'); } });
+}, { threshold: 0.12 });
+reveals.forEach(el => observer.observe(el));
+
+// ── Back to Top ──────────────────────────────────────────────────
+const backTop = document.getElementById('backTop');
+window.addEventListener('scroll', () => {
+  backTop.classList.toggle('show', window.scrollY > 400);
+});
+
+// ── WhatsApp Tooltip auto-hide ───────────────────────────────────
+setTimeout(() => {
+  document.getElementById('waTooltip').style.display = 'none';
+}, 5000);
+
+// ── Hero slot selection ──────────────────────────────────────────
+document.querySelectorAll('.slot').forEach(slot => {
+  slot.addEventListener('click', () => {
+    document.querySelectorAll('.slot').forEach(s => s.classList.remove('active'));
+    slot.classList.add('active');
+  });
+});
+// ── Form Submission ──────────────────────────────────────────────
+function submitForm() {
+  const fname = document.getElementById('fname').value.trim();
+  const phone = document.getElementById('phone').value.trim();
+  const dept = document.getElementById('dept').value;
+  const date = document.getElementById('date').value;
+  if (!fname || !phone || !dept || !date) {
+    alert('Please fill in all required fields (Name, Phone, Department, Date).');
+    return;
+  }
+  const notif = document.getElementById('notification');
+  notif.classList.add('show');
+  setTimeout(() => notif.classList.remove('show'), 5000);
+  // Reset form
+  ['fname','lname','phone','email','message'].forEach(id => { document.getElementById(id).value = ''; });
+  document.getElementById('dept').value = '';
+  document.getElementById('date').value = '';
+}
+
+// ── Set min date to today ────────────────────────────────────────
+const today = new Date().toISOString().split('T')[0];
+document.getElementById('date').setAttribute('min', today);
+
+// ── Navbar shadow on scroll ──────────────────────────────────────
+window.addEventListener('scroll', () => {
+  document.querySelector('.navbar').style.boxShadow =
+    window.scrollY > 30 ? '0 2px 32px rgba(11,31,58,.1)' : 'none';
+});
+
+// ── Smooth anchor links ──────────────────────────────────────────
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', function(e) {
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+</script>
+</body>
+</html>
